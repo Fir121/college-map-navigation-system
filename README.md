@@ -4,8 +4,8 @@ Uses geojson and folium. AI uses A-Star algorithm. Map created using [GeoJSON](h
 
 ## Team
 
-Ayushi Bhandari
-Divyansh Binani
+Ayushi Bhandari<br>
+Divyansh Binani<br>
 Mohamed Firas Adil
 
 ## Preview
