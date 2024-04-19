@@ -1,7 +1,7 @@
 import folium, json
-from buildingprocessor import Building
-from pointprocessor import PointPath
-from pathfinder import PathFinder
+from classes.buildingprocessor import Building
+from classes.pointprocessor import PointPath
+from classes.pathfinder import PathFinder
 
 BPDCLocation = (25.13207, 55.4197599)
 map_BPDC = folium.Map(

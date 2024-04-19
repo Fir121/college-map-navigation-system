@@ -1,6 +1,6 @@
 import folium, json
 from folium import plugins
-from pointprocessor import Graph
+from classes.pointprocessor import Graph
 from shapely.geometry import shape
 from shapely.geometry import Point
 import heapq
