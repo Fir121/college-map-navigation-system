@@ -10,6 +10,9 @@ class Graph:
     
     def addEdge(self, edge):
         self.edges.append(edge)
+    
+    def distance(self, node):
+        return ((self.x - node.x)**2 + (self.y - node.y)**2)**0.5
 
 class PointPath:
     def __init__(self, mulLines):
@@ -39,7 +42,6 @@ class PointPath:
                 if abs(self.nodes[i].x - self.nodes[j].x) < self.thresh and abs(self.nodes[i].y - self.nodes[j].y) < self.thresh:
                     if self.nodes[i] in self.nodes[j].edges:
                         continue
-                    print(f"Consolidating {self.nodes[i].x}, {self.nodes[i].y} and {self.nodes[j].x}, {self.nodes[j].y}, edges {len(self.nodes[i].edges)} and {len(self.nodes[j].edges)}")
                     for edge in self.nodes[j].edges:
                         self.nodes[i].addEdge(edge)
                         edge.edges[edge.edges.index(self.nodes[j])] = self.nodes[i]
@@ -51,4 +53,4 @@ class PointPath:
     
     def markerPath(self, map):
         for node in self.nodes:
-            folium.GeoJson(Point((node.x, node.y)), tooltip=f"{node.x},{node.y}, {len(node.edges)}").add_to(map) 
+            folium.GeoJson(Point((node.x, node.y)), tooltip=f"{node.x},{node.y}, {len(node.edges)}").add_to(map)
