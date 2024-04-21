@@ -19,8 +19,9 @@ def app(m, p):
     elif start_building == end_building:
         container.write("You are already at your destination!")
     else:
-        my_position = p.getBuildingPoint(m.b, m.p, start_building)
-        dist = p.giveBestPath(m.map_BPDC, my_position, m.p, m.b, end_building)
+        my_positions = p.getBuildingPoint(m.b, m.p, start_building)
+        _, dist, cp = p.giveBestPath(m.map_BPDC, my_positions, m.p, m.b, end_building)
+        m.map_BPDC.location = cp[::-1]
         html_string = m.map_BPDC.get_root().render().encode("utf8")
 
         container.write(f'You are currently at {start_building} and you want to go to {end_building}.')

@@ -27,6 +27,7 @@ class PathFinder:
     def giveBestPath(self, gmap, current_positions, points, buildings, building_name): # Main AI Method, heuristic used is Euclidean Distance. Fn takes in multiple start points (if you want to use only one start point do [start_point])
         mmpath = []
         mmdist = float("inf")
+        sel_curpos = None
         for current_position in current_positions:
             curpos = Graph(current_position[0], current_position[1])
 
@@ -59,6 +60,7 @@ class PathFinder:
             if mdist < mmdist:
                 mmdist = mdist
                 mmpath = mpath
+                sel_curpos = current_position
 
         # folium.GeoJson(Point((curpos.x, curpos.y)), tooltip=f"{curpos.x},{curpos.y}").add_to(gmap)
         path = [] # not showing curpos
@@ -66,7 +68,7 @@ class PathFinder:
             path.append([node.x, node.y])
         self.drawPathWay(gmap, path)
 
-        return mmdist
+        return mmpath, mmdist, sel_curpos 
 
     def calculateDistance(self, path):
         distance = 0
