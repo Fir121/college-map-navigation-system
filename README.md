@@ -18,5 +18,6 @@ In a virtual environment, tested on Python 3.10 (should work on most versions >=
 
 ```bash
 pip install -r requirements.txt
-python main.py
+python main.py # to test
+streamlit run page.py # to run the web app
 ```
