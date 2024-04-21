@@ -68,7 +68,7 @@ class PathFinder:
             path.append([node.x, node.y])
         self.drawPathWay(gmap, path)
 
-        return mmpath, mmdist, sel_curpos 
+        return mmpath, mmdist*111139, sel_curpos # 1 degree = 111139 meters 
 
     def calculateDistance(self, path):
         distance = 0
