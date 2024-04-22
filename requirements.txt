@@ -3,3 +3,4 @@ pandas
 geojson
 shapely
 streamlit
+streamlit-folium
